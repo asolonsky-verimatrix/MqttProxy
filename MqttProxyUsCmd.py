@@ -2,6 +2,7 @@ import sys
 import os
 import argparse
 import time
+import datetime
 import paho.mqtt.client as mqtt
 import Queue
 import random
@@ -75,9 +76,13 @@ def main(argv):
   PubTopic = User+"/"+GatewayId+"/Us/Cmd";
   SubTopic = User+"/"+GatewayId+"/Us/Rsp";
   PubMsg = '{"SeqNum":'+str(SeqNum)+', "Cmd":"'+Cmd+'", "Contract":"'+Contract+'", "Function":"'+Func+'", "Parameters":' + Param + '}';
-  print PubTopic + " : " + PubMsg;
+
+  print ("*******************************************************************************************")
+  print ((datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')) + " " + PubTopic)
+  print ("*******************************************************************************************")
+  print "<<<<< " + PubMsg + "\n";
   SubMsg = SendMqttMessage(User, Pwd, PubTopic, PubMsg, SubTopic, Timeout)
-  print SubMsg
+  print ">>>>> " + SubMsg + "\n";
     
   
 if __name__ == "__main__":
