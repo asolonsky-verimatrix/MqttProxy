@@ -1,1 +1,1 @@
-python MqttProxyUsCmd.py  --u DemoUser1 --p ZigBee09 --gwid 0x1111 --rw r --contract ZigBeeDeviceCompliance --func ReadFamilyTreeHwVersions --param '[{"Cert":"ZigBee3","Name":"Acme","Model":"Boomerang"}]' --timeout 30
+python MqttProxyUsCmd.py  --u DemoUser1 --p ZigBee09 --gwid 0x1111 --rw r --contract ZigBeeDeviceCompliance --func ReadFamilyTreeHwVersionsByModel --param '[{"Cert":"ZigBee3","Name":"Acme","Model":"Boomerang"}]' --timeout 30
